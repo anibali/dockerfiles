@@ -1,0 +1,23 @@
+[maxscale]
+threads=4
+
+[Splitter Service]
+type=service
+router=readwritesplit
+servers={{SERVER_LIST}}
+user={{MYSQL_USER}}
+passwd={{MYSQL_PASS}}
+
+[Splitter Listener]
+type=listener
+service=Splitter Service
+protocol=MySQLClient
+port=3306
+
+[Replication Monitor]
+type=monitor
+module=mysqlmon
+monitor_interval=10000
+servers={{SERVER_LIST}}
+user={{MYSQL_USER}}
+passwd={{MYSQL_PASS}}
