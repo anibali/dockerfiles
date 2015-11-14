@@ -1,8 +1,8 @@
 ### etcd Docker image
 
-[![](https://badge.imagelayers.io/anibali/etcd:latest.svg)](https://imagelayers.io/?images=anibali/etcd:latest 'Get your own badge on imagelayers.io')
-
 [Alpine Linux](http://www.alpinelinux.org/) + [etcd](https://coreos.com/etcd/)
+
+`docker pull anibali/etcd`
 
 * Includes `etcd` and `etcdctl` binaries
 

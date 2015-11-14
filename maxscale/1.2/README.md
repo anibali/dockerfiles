@@ -1,17 +1,19 @@
 ### MaxScale Docker image
 
-[![](https://badge.imagelayers.io/anibali/maxscale:latest.svg)](https://imagelayers.io/?images=anibali/maxscale:latest 'Get your own badge on imagelayers.io')
+[Debian](http://www.debian.org/) + [MaxScale](https://mariadb.com/products/mariadb-maxscale)
 
-This image is designed to make it really easy to use MySQL replicas by
-providing an install of
-[MaxScale](https://mariadb.com/products/mariadb-maxscale).
+`docker pull anibali/maxscale`
+
+* Includes full MaxScale install
+* Supports linking MySQL replica containers
+* Drop-in replacement for a standard MySQL container
 
 If you are running a normal MySQL database instance, say something similar
 to [the official Docker MySQL image](https://hub.docker.com/_/mysql/), then you
 should be able to use this as a drop-in replacement. MaxScale has some special
 awesome sauce which will automatically spread connections across multiple
 database replicas (and split read/writes as appropriate), but to your
-application it will look like a normal database.
+application it will just look like a normal database.
 
 #### Configuration
 
