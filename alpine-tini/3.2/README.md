@@ -20,9 +20,9 @@ bash-4.3# exit
 exit
 ```
 
-#### Using as a base image
+##### Using as a base image
 
-Leave the ENTRYPOINT as is and override the CMD eith whatever you like.
+Leave the ENTRYPOINT as is and override the CMD with whatever you like.
 
 See [anibali/etcd](https://hub.docker.com/r/anibali/etcd/~/dockerfile/) for an
 example.
