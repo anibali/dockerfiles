@@ -33,9 +33,9 @@ MaxScale expects a replication master and at least one replication slave.
 
 #### Usage
 
-##### Example 1: Database and replicas are in Docker containers
+##### Example 1: Replicas are in Docker containers
 
-Linking to containers which have the MySQL database running and listening on
+Linking to containers which have the MySQL replica running and listening on
 port 3306 will automatically inject most of the required environment variables.
 
 ```yaml
@@ -47,18 +47,26 @@ db-proxy:
   links:
     - db-master:db1
     - db-slave1:db2
-    # ...can specify more...
+    # ...can specify more slaves...
 db-master:
-  # The MySQL replication master...
+  image: tutum/mysql
+  environment:
+    - REPLICATION_MASTER=true
+    # ...
 db-slave1:
-  # A MySQL replication slave...
+  image: tutum/mysql
+  environment:
+    - REPLICATION_SLAVE=true
+    # ...
+  links:
+    - db-master:mysql
 ```
 
-##### Example 2: Database and replicas are external to Docker
+##### Example 2: Replicas are external to Docker
 
-When the database is running outside of Docker you can manually tell the
+When the replicas are running outside of Docker you can manually tell the
 container where the replication master and slaves are. This is useful, for
-example, if the database is being run in Amazon AWS.
+example, if the database is being run in Amazon RDS.
 
 ```yaml
 db-proxy:
