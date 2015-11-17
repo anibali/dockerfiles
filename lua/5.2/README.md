@@ -1,4 +1,4 @@
-### Lua image
+### Lua Docker image
 
 [Alpine Linux](http://www.alpinelinux.org/) + [Lua](http://www.lua.org/) +
 [LuaRocks](https://luarocks.org/)
