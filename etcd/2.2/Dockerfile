@@ -1,12 +1,10 @@
 FROM anibali/alpine-tini:3.2
 
-ARG etcd_git_tag=v2.2.1
-
 RUN apk add --update curl git go \
     && mkdir -p /usr/src/etcd \
     && git clone https://github.com/coreos/etcd.git /usr/src/etcd \
     && cd /usr/src/etcd \
-    && git checkout tags/$etcd_git_tag \
+    && git checkout tags/v2.2.1 \
     && ./build \
     && cp /usr/src/etcd/bin/* /usr/bin \
     && rm -rf /usr/src/etcd \
