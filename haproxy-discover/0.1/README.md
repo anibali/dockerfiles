@@ -1,6 +1,6 @@
 ### HAProxy Docker image
 
-[Alpine Linux](http://www.alpinelinux.org/) + HAProxy
+[Alpine Linux](http://www.alpinelinux.org/) + [HAProxy](http://www.haproxy.org/)
 
 `docker pull anibali/haproxy-discover`
 
@@ -28,3 +28,5 @@ Sets up HAProxy to round robin between all discovered "hello" services that have
 port 80 published. The proxy port is the same as the service port (80 in this
 case). In this example it is assumed that Registrator has been set up to
 register services with etcd, which is running at address 1.2.3.4.
+
+HAProxy stats are available on port 1936.
