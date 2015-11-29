@@ -1,6 +1,4 @@
 local cjson = require('cjson')
-local http = require('httpclient').new()
-local inspect = require('inspect')
 local posix = require('posix')
 local signal = require('posix.signal')
 local unistd = require('posix.unistd')
@@ -70,5 +68,5 @@ while true do
     last_time = new_time
   end
 
-  os.execute('sleep ' .. opts.interval)
+  socket.sleep(opts.interval)
 end

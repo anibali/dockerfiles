@@ -4,12 +4,13 @@ local M = {}
 local Etcd_Registry = {}
 
 function Etcd_Registry:fetch_services(service_name, service_port)
-  local response, err = self.client:get(self.prefix .. '/' .. service_name)
+  local service_key = '/' .. self.prefix .. '/' .. service_name
+  local response, err = self.client:keys_get(service_key)
   if err then
     return nil, 'Unable to contact etcd: ' .. err
   end
   if response.node == nil then
-    return nil, 'etcd directory not found: /' .. self.prefix .. '/' .. service_name
+    return nil, 'etcd directory not found: ' .. service_key
   end
 
   local services = {}
